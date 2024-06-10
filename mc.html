@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Our Pricing Plans</h1>
+        <p>Choose the plan that fits your needs</p>
+    </header>
+
+    <div class="toggle-container">
+        <span>USD</span>
+        <label class="switch">
+            <input type="checkbox" id="currencyToggle">
+            <span class="slider round"></span>
+        </label>
+        <span>EUR</span>
+    </div>
+
+    <section class="pricing">
+        <div class="card">
+            <h2>Basic</h2>
+            <p class="price" data-usd="$10" data-eur="€9">\$10</p>
+            <ul>
+                <li>5 GB Storage</li>
+                <li>10 Projects</li>
+                <li>Email Support</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+        <div class="card">
+            <h2>Pro</h2>
+            <p class="price" data-usd="$20" data-eur="€18">\$20</p>
+            <ul>
+                <li>50 GB Storage</li>
+                <li>100 Projects</li>
+                <li>Priority Support</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+        <div class="card">
+            <h2>Enterprise</h2>
+            <p class="price" data-usd="$50" data-eur="€45">\$50</p>
+            <ul>
+                <li>Unlimited Storage</li>
+                <li>Unlimited Projects</li>
+                <li>24/7 Support</li>
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('currencyToggle').addEventListener('change', function() {
+            const prices = document.querySelectorAll('.price');
+            prices.forEach(price => {
+                if (this.checked) {
+                    price.textContent = price.getAttribute('data-eur');
+                } else {
+                    price.textContent = price.getAttribute('data-usd');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
